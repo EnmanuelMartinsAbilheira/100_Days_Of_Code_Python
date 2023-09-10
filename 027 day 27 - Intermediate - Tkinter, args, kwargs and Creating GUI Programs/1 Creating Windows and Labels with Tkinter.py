@@ -9,9 +9,9 @@ my_label = tkinter.Label(text="I am Label", font=("Arial", 24, "italic"))
 #my_label.pack(expand=True)
 my_label.pack()
 
-import turtler
+import turtle
 
-tim = turtler.Turtler()
+tim = turtle.Turtle()
 tim.write()
 
 
