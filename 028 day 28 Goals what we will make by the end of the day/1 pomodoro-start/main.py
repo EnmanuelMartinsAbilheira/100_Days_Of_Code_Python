@@ -18,19 +18,24 @@ reps = 0
 
 def start_time():
     global  reps
+    reps += 1
+
     work_sec = WORK_MIN * 60
     short_break_sec = SHORT_BREAK_MIN * 60
     long_break_sec = LONG_BREAK_MIN * 60
 
-    # if  its the 1st/ 3rd / 5th/ 7tyh rep:
 
-    count_down(work_sec)
-    #if its the 8th rep:
-    
-    count_down(long_break_sec)
-    #if its 2nd/4/th /6th rep:
-
-    count_down(short_break_sec)
+    if reps % 8 == 0:
+        # if its the 8th rep:
+        count_down(long_break_sec)
+        title_label.config(text="Break", fg=RED)
+    elif reps % 2 ==0:
+        #if its 2nd/4/th /6th rep:
+        count_down(short_break_sec)
+        title_label.config(text="Break", fg=PINK)
+    else:# if  its the 1st/ 3rd / 5th/ 7tyh rep:
+        count_down(work_sec)
+        title_label.config(text="Break", fg=GREEN)
 
 
     count_down(5 * 60)
@@ -47,6 +52,8 @@ def count_down(count):
     canvas.itemconfig(time_text, text=f"{count_min}:{count_sec}")
     if count > 0:
         window.after(1000, count_down, count - 1)
+    else:
+        start_time()
 
 # ---------------------------- UI SETUP ------------------------------- #
 
