@@ -14,6 +14,9 @@ reps = 0
 
 # ---------------------------- TIMER RESET ------------------------------- #
 
+def reser_timer():
+    window.after_cancel()
+
 # ---------------------------- TIMER MECHANISM ------------------------------- #
 
 def start_time():
@@ -54,6 +57,12 @@ def count_down(count):
         window.after(1000, count_down, count - 1)
     else:
         start_time()
+        marks = ""
+        work_sessions = math.float(reps/2)
+        for _ in range(work_sessions):
+            marks += '✔'
+        check_marks.config(text=marks)
+
 
 # ---------------------------- UI SETUP ------------------------------- #
 
@@ -76,8 +85,8 @@ start_button.grid(column= 0,row=2)
 reset_button = Button(text='Reset', highlightthickness=0)
 reset_button.grid(column= 2,row=2)
 
-check = Label(text='✔', bg=YELLOW, fg=GREEN)
-check.grid(column=1, row=3)
+check_marks = Label(bg=YELLOW, fg=GREEN)
+check_marks.grid(column=1, row=3)
 
 window.mainloop()
 
