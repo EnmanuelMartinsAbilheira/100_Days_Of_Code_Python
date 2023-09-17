@@ -1,3 +1,4 @@
+
 from tkinter import *
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
@@ -14,7 +15,35 @@ window.config(padx=20, pady=20)
 canvas = Canvas(height=200, width=200)
 logo_img = PhotoImage(file="logo.png")
 canvas.create_image(100, 100, image=logo_img)
-canvas.pack()
+canvas.grid(column=1, row=0)
 
+#Labels
+website_label = Label(text="Website: ")
+website_label.grid(column=0, row=1)
+
+email_label = Label(text="Email/Username: ")
+email_label.grid(column=0, row=2)
+
+password_label = Label(text="Passsword: ")
+password_label.grid(column=0, row=3)
+
+
+#Entries
+website_entry = Entry(width=35)
+website_entry.grid(row=1, column=1, columnspan=2)
+
+email_entry = Entry(width=35)
+email_entry.grid(row=2, column=1,  columnspan=2)
+
+password_entry = Entry(width=21)
+password_entry.grid(row=3, column=1)
+
+
+#Buttons
+generate_password_buton = Button(text="Generate Password")
+generate_password_buton.grid(column=2, row=3)
+
+add_button = Button(text="Add", width=36)
+add_button.grid(column=1, row=4,  columnspan=2)
 
 window.mainloop()
