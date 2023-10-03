@@ -40,8 +40,6 @@ smtplib.SMTP("smtp.gmail.com", port=587)
 
 #connection.close()
 
-# Challenge 1 - Send Motivational Quotes on Mondays via Email
-
 import datetime as dt
 
 now = dt.datetime.now()
