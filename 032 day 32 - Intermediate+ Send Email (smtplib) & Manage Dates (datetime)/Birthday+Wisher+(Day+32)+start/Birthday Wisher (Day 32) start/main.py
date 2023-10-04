@@ -1,4 +1,27 @@
-#import smtplib
+import smtplib
+import datetime as dt
+import random
+
+MY_EMAIL = ""
+MY_PASSWORD = ""
+
+now = dt.datetime.now()
+weekday = now.weekday()
+if weekday == 1:
+    with open("quotes.txt") as quote_file:
+        all_quotes = quote_file.readline()
+        quote = random.choice(all_quotes)
+
+    print(quote)
+    with smtplib.SMTP("smtp.gmail.com") as connection:
+        connection.starttls()
+        connection.login(MY_EMAIL, MY_PASSWORD)
+        connection.sendmail(from_addr=MY_EMAIL,
+                            to_addrs=MY_EMAIL,
+                            msg=f"Subject:Monday motivation\n\n{quote}"
+                            )
+
+
 
 """
 A Note About the Next Lesson: Google SMTP Port
@@ -26,6 +49,7 @@ Use this App password in your Python code instead of your normal password.
 smtplib.SMTP("smtp.gmail.com", port=587)
 """
 
+
 #my_email = "example@gmail.com"
 #password = "1234AbCd"
 
@@ -40,11 +64,14 @@ smtplib.SMTP("smtp.gmail.com", port=587)
 
 #connection.close()
 
-import datetime as dt
 
-now = dt.datetime.now()
-year = now.year
-month = now.month
-day_of_week = now.weekday()
 
-date_of_birth = dt.datetime(year=1995, month=12, day=15)
+
+#import datetime as dt
+
+#now = dt.datetime.now()
+#year = now.year
+#month = now.month
+#day_of_week = now.weekday()
+
+#date_of_birth = dt.datetime(year=1995, month=12, day=15)
