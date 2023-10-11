@@ -1,5 +1,6 @@
 ##################### Normal Starting Project ######################
 
+
 # 1. Update the birthdays.csv with your friends & family's details.
 # HINT: Make sure one of the entries matches today's date for testing purposes. e.g.
 #name,email,year,month,day
